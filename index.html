@@ -6,91 +6,61 @@
     <body>
         10
         <script>
-            var num = 2;
-            console.log(num);
-            
-            //num = 'student';
-            
-            if(false)//boolean
-            {
-                console.log('go to movie');
-            }
-            else {
-                console.log('hanout in cafe');
-            }
-            
-            /*function goToParadise() //function functionName{
-                
-                console.log('biryani is on its way');
-            }
-            
-            
-            goToParadise();
-            
-            function goToParadise(mainItem, curry) //Parameters {
-                console.log(mainItem + ' ' + curry + ' is on its way')
-            }
-            
-            goToParadise('roti','mixedveg'); //Arguments */
             
             var mainCourseItem = ['jeera rice','pulka','biryani','naan'];
             var curryItems = ['dal','panner buttermasala','gobi','mixed veggi','palak'];
+            
             var mainCourseExists, curryItemExists;
             
-            function goToParadise(mainItem, curryItem) {
-                if(mainItem.length == 0 && curryItem == 0) {console.log('Please enter Items');}
-                else if(mainItem.length != 0 && curryItem != 0) {
-                    for(var i = 0; i < mainCourseItem.length; i++) {
-                        for(var j = 0; j < curryItems.length; j++ ){
-                             if(mainCourseItem[i] == mainItem && curryItems[j] == curryItem){
-                                 
-                                   console.log(mainItem + ' ' + curryItem + ' is on its way.');
-                             }
-                           
-                        }
+            
+            function goToParadise(mainItem, curryItem){
+                
+                for(var i = 0; i < mainCourseItem.length; i++) {
+                    
+                    if(mainCourseItem[i] == mainItem) {
+                        
+                        mainCourseExists = 'available';
+                        break;
                     }
-                  
-                }
-                else if(mainItem.length != 0 && curryItem == 0) {
+                    else {
+                        mainCourseExists = 'not available';
+                    }
+                    
                    
-                    for(var i = 0; i < mainCourseItem.length; i++) {
-                        if(mainCourseItem[i] == mainItem){
-                            console.log(mainItem + ' exists.  Curry item is not available.');
-                        }
-                        else{
-                            console.log('Items are not available.')
-                        }
+                }
+                
+                for(var j = 0; j < curryItems.length; j++) {
+                    
+                    if(curryItems[j] == curryItem) {
+                        
+                        curryItemExists = 'available';
+                        break;
                     }
+                    else {
+                        curryItemExists = 'not available';
+                    }
+                    
+                    
                     
                 }
                 
-                else if(curryItems.length != 0 && mainItem.length ==0) {
-                  
-                    for(var j = 0; j < curryItems.length; j++ ){
-                        if(curryItems[j] == curryItem){
-                            console.log(curryItem + ' exists. Main Item is not available.');
-                        }
-                        else{
-                            console.log('Items are not available.');
-                        }
-                    }
                 
-                
-                
+                if(mainCourseExists == 'available' && curryItemExists == 'available') {
+                    console.log(mainItem + ' ' + curryItem + ' are available.');
                 }
-                
-                  /* 
-                    if(mainCourseItem[i] == mainItem){
-                        console.log(mainCourseItem[i] + ' ' + curry + 'is on its way.')
-                    }
-                    else {
-                        console.log('Item is not available');
-                    } */
-                   
-            
+                else if(mainCourseExists == 'available' && curryItemExists == 'not available') {
+                    console.log(mainItem + ' is available but ' + curryItem + ' is not available.');
+                }
+                else if(mainCourseExists == 'not available' && curryItemExists == 'available') {
+                    console.log(mainItem + ' is not available, but ' + curryItem + ' is available.');
+                }
+                else if(mainCourseExists == 'not available' && curryItemExists == 'not available') {
+                    console.log(mainItem + ' ' + curryItem + ' are not available.');
+                }
             }
+       
             
-            goToParadise('naan','palak');
+            goToParadise('jeera rice','dal');
         </script>
     </body>
-</html>+
+</html>
