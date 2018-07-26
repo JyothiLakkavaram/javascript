@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gallery</title>
+        <style>
+            #container {
+                
+                width: 100%;
+                clear: both;
+                
+            }
+            #gallery {
+                clear: both;
+                width: 50%;
+                float: left;
+            
+            }
+            li {
+                width: 50%;
+                float: left;
+                list-style: none;
+                display:block;
+            
+            }
+            
+            #gallery img {
+                width: 300px;
+                margin: 2%;
+            }
+            
+            .view {
+                float: right;
+                width: 40%;
+                margin:2%;
+                zoom: 0.6;
+                transition: .3s ease;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <ul id="gallery">
+            <li><img src="images/image1.jpg" alt="Image 1" /></li>
+            <li><img src="images/image2.png" alt="Image 2" /></li>
+            <li><img src="images/image3.jpg" alt="Image 3" /></li>
+            <li><img src="images/image4.jpg" alt="Image 4" /></li>
+            <li><img src="images/image5.jpg" alt="Image 5" /></li>
+            <li><img src="images/image6.jpg" alt="Image 6" /></li>
+        </ul>
+        
+        <script>
+            var gallery = document.getElementById('gallery');
+            var box = document.createElement('div');
+            function cb(e) {
+                var image = document.createElement('img');
+                image.setAttribute('src',e.target.src);
+                box.appendChild(image);
+                document.body.appendChild(box);
+                              
+            }
+		  
+            function cr(e) {
+                var ri = document.getElementsByTagName('div');
+                document.body.removeChild(ri);
+                
+               
+            }
+            // gallery.addEventListener('click' ,cb ,true);
+            // box.classList.add("view");
+
+            gallery.addEventListener('mouseenter', cb, true);
+            box.classList.add("view");
+            gallery.addEventListener('mouseleave', cr, true);
+            
+ 
+		
+            
+           
+    </script>
+
+    </body>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</html>
