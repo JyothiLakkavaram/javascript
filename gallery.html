@@ -66,7 +66,7 @@
             //var gallery = document.getElementById('gallery');
             // console.log(gallery.childElementCount);
             //console.log(gallery.children);
-           // var a = gallery.childNodes;
+            // var a = gallery.childNodes;
         
             //var a = gallery.children;
             //console.log(a[2])
@@ -75,35 +75,33 @@
             var images = document.getElementsByClassName('images');
 
             //alert(images[2])
-                    var container = document.createElement('div');
-                 var image = document.createElement('img');
+            
+            var container = document.createElement('div');
+            var image = document.createElement('img');
             container.appendChild(image);
-                             document.body.appendChild(container);
+            document.body.appendChild(container);
 
              function cb(e) {
                 //console.log(images[1].src);
                 //console.log(images.length);
                 // console.log(e.target.src);
-                
-                
+                        
                  image.setAttribute('src',e.target.src)
                  
-
-                 }
+             }
                 
             function cl(e) {
-                    image.removeAttribute('src');            }
+                    image.removeAttribute('src');           
+            }
+            
             for(var i = 0 ; i < images.length; i++) {
-          // console.log(  images[i].addEventListener('mouseover',cb, true));
-                    images[i].addEventListener('mouseover',cb, true);
-                    images[i].addEventListener('mouseleave',cl, true);
+                // console.log(  images[i].addEventListener('mouseover',cb, true));
+                images[i].addEventListener('mouseover',cb, true);
+                images[i].addEventListener('mouseleave',cl, true);
                 
                 var identifier = images[i].getAttribute('id');
-               // console.log(identifier);
-                
-                    
-                    
-                }
+                // console.log(identifier);
+            }
             
         </script>
     </body>
