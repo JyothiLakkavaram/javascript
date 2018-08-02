@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Maps, Filters and Reduce Methods
+    </title>
+</head>
+
+<body>
+
+    <script>
+        const animals = [{
+            "name": "cat",
+            "size": "small",
+            "weight": 5
+        }, {
+            "name": "dog",
+            "size": "small",
+            "weight": 10
+        }, {
+            "name": "lion",
+            "size": "medium",
+            "weight": 150
+        }, {
+            "name": "elephant",
+            "size": "big",
+            "weight": 5000
+        }]
+
+        //For Loop
+
+        var animal_names = [];
+        var len = animals.length,
+            i = 0;
+
+        for (i; i < len; i++) {
+
+            animal_names.push(animals[i].name);
+        }
+
+        //Map Method    
+
+        var Anames = animals.map(function(animal) {
+            return animal.name;
+        })
+
+        //For Loop 
+
+        let small_animals = [];
+
+        for (i = 0; i < len; i++) {
+
+            if (animals[i].size === 'small') {
+                small_animals.push(animals[i]);
+            }
+        }
+
+        //Filter Method
+
+        var smallAnimals = animals.filter(function(animal) {
+            return animal.size === 'small'
+        });
+
+        //For Loop
+
+        var total_weight = 0;
+
+        for (i = 0; i < len; i++) {
+
+            total_weight += animals[i].weight;
+        }
+
+        //Reduce Method 
+
+        var tWeight = animals.reduce(function(weight, animal) {
+
+            return weight += animal.weight;
+        }, 0);
+    </script>
+</body>
+
+</html>

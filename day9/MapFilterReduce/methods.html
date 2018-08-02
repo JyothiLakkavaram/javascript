@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Map, Filter and Reduce Methods</title>
+    </head>
+    <body>
+        <script src="tasks.js"></script>
+        <script>
+            var task_names = tasks.map(function(task){ return task.name; });
+            var difficult_tasks = tasks.filter(function(task){ return task.duration >= 120;});
+            var total_duration = tasks.reduce(function(previous, current) {
+                    return previous + current;
+                },0);
+            var array_of_arrays = [[1,2],[3,4],[5,6]];
+            var concatinated = array_of_arrays.reduce(function(prev, curr){
+                return prev.concat(curr);
+            });
+            
+            var reverseConcatination = array_of_arrays.reduceRight(function(pr, cu){
+                return pr.concat(cu);
+            });
+        </script>
+    </body>
+</html>
