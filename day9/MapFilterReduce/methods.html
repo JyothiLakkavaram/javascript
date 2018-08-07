@@ -8,7 +8,8 @@
         <script>
             var task_names = tasks.map(function(task){ return task.name; });
             var difficult_tasks = tasks.filter(function(task){ return task.duration >= 120;});
-            var total_duration = tasks.reduce(function(previous, current) {
+            var tasks_time = tasks.map(function(task){ return task.duration;});
+            var total_duration = tasks_time.reduce(function(previous, current) {
                     return previous + current;
                 },0);
             var array_of_arrays = [[1,2],[3,4],[5,6]];
