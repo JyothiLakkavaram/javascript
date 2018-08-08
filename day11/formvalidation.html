@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Form Validation</title>
+    <style>
+        
+       
+    </style>
+</head>
+
+<body>
+    <form>
+        <em>Please Enter Valid Email Address</em>
+        <input type="email" id="emailcheck" name="emailcheck">
+        <button type="submit" onclick='validateEmail()'>Submit</button>
+    </form>
+    <script>
+        //Declaring Variables
+        var errorMsg, emailID;
+
+        //Declaring Pattern Variables
+        var emailIdPattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+        errorMsg = document.getElementsByTagName("em")[0];
+        
+
+        function validateEmail() {
+            emailID = document.getElementById("emailcheck").value;
+            //console.log(emailID +" "+ errorMsg.innerText);
+            //errorMsg.innerText = "Just check"
+            if (emailID.match(emailIdPattern)) {
+                errorMsg.innerText = "Success!!";
+
+            } else {
+                errorMsg.innerText = "Failed!";
+
+            }
+
+
+
+        }
+    </script>
+</body>
+</html>
