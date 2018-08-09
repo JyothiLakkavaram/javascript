@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr = [1,2,3,4];
+		var arr1 = arr.reduce(function(accumulator,currentvalue,currentIndex,arr){
+			
+
+			console.log('accumulator' + accumulator);
+			console.log('currentvalue' + currentvalue);
+			console.log('currentIndex' + currentIndex);
+			console.log('arr' + arr);
+
+			accumulator.total = accumulator.total + currentvalue;
+			console.log(accumulator);
+			return accumulator;
+		},{total:0});
+	</script>
+</body>
+</html>

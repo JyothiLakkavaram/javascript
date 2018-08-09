@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Customer Manager</title>
+
+    <style>
+        .container {
+            width: 500px;
+            margin: auto;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            display: inline-block;
+            width: 200px;
+            border: 1px solid #000;
+            text-align: center;
+        }
+
+        #page {
+
+            margin: 30px auto;
+            text-align: center;
+
+        }
+
+        #page span {
+            margin: 0 10px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="../day6/data.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+        //console.log(data.length);
+        var container;
+
+
+        var noOfPages = Math.ceil(data.length / 10);
+        var i = 0;
+        perPage = 10;
+
+
+        function pagination(i, perpage) {
+            var isExists = document.getElementsByClassName('container').length;
+            console.log(isExists);
+
+            if (isExists == 0) {
+
+                container = document.createElement('div');
+                document.body.appendChild(container);
+                container.setAttribute('class', 'container');
+
+
+            } else {
+
+                container.innerHTML = "";
+                
+            //    document.body.removeChild('container');
+                container = document.createElement('div');
+                document.body.appendChild(container);
+                container.setAttribute('class', 'container');
+
+
+            }
+            for (i; i < perPage; i++) {
+
+
+                var customer = document.createElement('div');
+                container.appendChild(customer);
+                customer.setAttribute('class', 'customer');
+
+                var h3 = document.createElement('h3');
+                h3.innerText = data[i].firstName;
+                customer.appendChild(h3);
+
+                var Money = 0;
+
+                // console.log(data[i].orders.length);
+                for (var j = 0; j < data[i].orders.length; j++) {
+                    var menu = document.createElement('ul')
+                    customer.appendChild(menu)
+
+                    menu.setAttribute('class', 'menu')
+                    var list1 = document.createElement('li');
+                    menu.appendChild(list1);
+
+                    var list2 = document.createElement('li');
+                    menu.appendChild(list2);
+
+                    list2.setAttribute('class', 'cost');
+
+                    list1.innerText = data[i].orders[j].productName;
+                    list2.innerText = data[i].orders[j].itemCost;
+
+                    Money = Money + data[i].orders[j].itemCost;
+
+                }
+
+                var total = document.createElement('ul');
+                var list3 = document.createElement('li');
+                var list4 = document.createElement('li');
+
+                list3.innerText = 'Total Cost';
+                list4.innerText = Money;
+
+                customer.appendChild(total);
+                total.appendChild(list3);
+                total.appendChild(list4);
+
+            }
+        }
+        var footer = document.createElement('div');
+        document.body.appendChild(footer);
+        footer.setAttribute('id', 'page');
+        for (var n = 0; n < noOfPages; n++) {
+            console.log(noOfPages);
+            var nos = document.createElement('span');
+            var ids = "page" + (n + 1);
+            nos.setAttribute('id', ids);
+            footer.appendChild(nos);
+            nos.innerText = n + 1;
+        }
+
+
+        var page1 = document.getElementById('page1');
+        var page2 = document.getElementById('page2');
+        var page3 = document.getElementById('page3');
+        // console.log(page1);
+
+        page1.onclick = function() {
+            i = 0;
+            perPage = 10;
+            pagination(i, perPage);
+        };
+
+
+        page2.onclick = function() {
+            i = 10;
+            perPage = 20;
+            pagination(i, perPage);
+        };
+        page3.onclick = function() {
+            i = 20;
+            perPage = 30;
+            pagination(i, perPage);
+
+        }
+    </script>
+</body>
+
+</html>
