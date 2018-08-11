@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Furniture Shopping</title>
+</head>
+
+<body>
+    <h3>Enter the details below:</h3>
+    <form action="#">
+        Chairs:
+        <input type="text" name="chairs" required>
+        <br> <br> 
+        Tabel:
+        <input type="text" name="table" required>
+        <br> <br> 
+        Shoerack:
+        <input type="text" name="shoerack" required>
+        <br><br>
+        <input type="submit" value="Submit" id="submit">
+    </form>
+    <script>
+        var submit = document.getElementById('submit');
+        submit.onclick = createObject;
+        function createObject(e){
+           // alert("Entered");
+            var chairs = document.getElementsByTagName('input')[0].value;
+            var table = document.getElementsByTagName('input')[1].value;
+            var shoerack = document.getElementsByTagName('input')[2].value;
+            
+            var customer = new customerPurchase(chairs,table,shoerack);
+            console.log(customer);
+            function customerPurchase(chairs,table,shoerack) {
+                this.chairs = chairs;
+                this.table = table;
+                this.shoerack = shoerack;
+                
+            }
+            e.preventDefault();
+        }
+        
+    </script>
+</body>
+</html>

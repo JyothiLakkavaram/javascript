@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Object creation</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		var brandname = 'lg';
+		var brandname1 = brandname;
+		brandname1 = 'samsung';
+
+		var tv = {
+			brandname : 'lg',
+			color: 'grey'
+
+		} 
+		var tv1 = Object.create(tv);
+
+		tv1.brandname = 'samsung';
+
+
+
+		function CustomerOrders(chairs,tables,shoerack){
+			// this.orderno = OrderNum;
+			console.log(this);
+			this.chairs = chairs;
+			this.table = tables;
+			this.shoerack = shoerack;
+		}
+		var customer1 = new CustomerOrders('neelkamal chairs','wooden table', 'metal wallmount shoerack');
+		var customer2 = new CustomerOrders('boss chairs','metal table', 'wooden shoerack');
+		// CustomerOrders('neelkamal chairs','wooden table', 'metal wallmount shoerack');
+	</script>
+
+</body>
+</html>
