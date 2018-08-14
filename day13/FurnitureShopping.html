@@ -2,6 +2,12 @@
 <html>
     <head>
     <title>Furniture Shopping</title>
+    <style>
+        table,tr,th,td{
+            border: 1px solid black;
+            margin-top: 30px;
+        }    
+    </style>
 </head>
 
 <body>
@@ -17,23 +23,60 @@
         <input type="text" name="shoerack" required>
         <br><br>
         <input type="submit" value="Submit" id="submit">
+        
     </form>
     <script>
         var submit = document.getElementById('submit');
         submit.onclick = createObject;
+         var tables = document.createElement('table');
+            document.body.appendChild(tables);
+            var tr = document.createElement('tr');
+                tables.appendChild(tr);
+            for(var i = 0; i < 3; i++){
+                    var th = document.createElement('th');
+                    tr.appendChild(th);
+        
+                    if(i == 0) {
+                        th.innerText = "Chairs";
+                    }
+                    else if(i == 1) {
+                        th.innerText = "Table";     
+                    }
+                    else {
+                        th.innerText = "Shoerack";
+                    }
+            }
         function createObject(e){
            // alert("Entered");
             var chairs = document.getElementsByTagName('input')[0].value;
             var table = document.getElementsByTagName('input')[1].value;
             var shoerack = document.getElementsByTagName('input')[2].value;
-            
+           
+            var clickCount = 0;
             var customer = new customerPurchase(chairs,table,shoerack);
             console.log(customer);
             function customerPurchase(chairs,table,shoerack) {
                 this.chairs = chairs;
                 this.table = table;
                 this.shoerack = shoerack;
-                
+                //console.log(chairs);
+                 var tr = document.createElement('tr');
+                tables.appendChild(tr);
+                for(var i = 0; i < 3; i++){
+                    var td = document.createElement('td');
+                    tr.appendChild(td);
+        
+                    if(i == 0) {
+                        td.innerText = chairs;
+                    }
+                    else if(i == 1) {
+                        td.innerText = table;     
+                    }
+                    else {
+                        td.innerText = shoerack;
+                    }
+                }
+               
             }
             e.preventDefault();
         }
