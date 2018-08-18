@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#incompleteTask input[type=text],#completeTask input[type=text]  {
+			display: none;
+		} 
+        ul {
+            list-style: none;
+        }
+		#incompleteTask .editMode input[type=text],#completeTask .editMode input[type=text] {
+			display: inline;
+		}
+		.editMode label{
+			display:none;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<input type="text" name="addtask" id="tasklist">
+		<button id="addbtn">Add task</button>
+	</div>
+	<div>
+		<div>
+			<h3>IncompleteTask</h3>
+			<ul id="incompleteTask">
+				<li class="">
+					<input type="checkbox" name="" >
+					<input class="check" type="text" name="">
+					<label>movie</label>
+					<button class="edit">Edit</button>
+					<button class="delete">Delete</button>
+				</li>
+			</ul>	
+		</div>
+		<div>
+			<h3>CompleteTask</h3>
+			<ul id="completeTask">
+				<li>
+					<input type="checkbox"  name="">
+					<input class="check" type="text" name="">
+					<label>movie</label>
+					<button class="edit">Edit</button>
+					<button class="delete">Delete</button>
+				</li>
+			</ul>	
+		</div>
+		
+	</div>
+	<script type="text/javascript" src="todo.js"></script>
+    <script>
+    
+    </script>
+</body>
+</html>

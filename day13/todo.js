@@ -36,7 +36,7 @@ function addTask() {
     
     incompleteTask.appendChild(taskItem);
 
-    incompleteList = document.getElementById('incompleteTask').childElementCount;
+  //  incompleteList = document.getElementById('incompleteTask').childElementCount;
     var i;
     for (i = 0; i < ED.length; i++) {
         ED[i].onclick = edBtn;
